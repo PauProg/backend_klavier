@@ -8,6 +8,10 @@
 ## Autor
 Pau Medina Vázquez
 
+## Documentación
+- Diagrama de dominio: `docs/diagrams/`
+- Architecture Decision Records (ADRs): `docs/adrs/`
+
 ## Como ejecutar el proyecto
 
 ### 1. Clonar el repositorio

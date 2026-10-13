@@ -1,22 +1,17 @@
 const mongoose = require("mongoose");
 
-const lineaPedidoSchema = new mongoose.Schema({
-  idLineaPedido: {
+const orderItemSchema = new mongoose.Schema({
+  orderId: {
     type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    unique: true,
-  },
-  idPedido: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Pedido",
+    ref: "Order",
     required: true,
   },
-  idProducto: {
+  productId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Producto",
+    ref: "Product",
     required: true,
   },
-  cantidad: {
+  quantity: {
     type: Number,
     required: true,
     min: 1,
@@ -25,12 +20,12 @@ const lineaPedidoSchema = new mongoose.Schema({
       message: "La cantidad debe ser un número entero",
     },
   },
-  precioCompra: {
+  purchasePrice: {
     type: Number,
     required: true,
     min: 0,
   },
 });
 
-const LineaPedido = mongoose.model("LineaPedido", lineaPedidoSchema);
-module.exports = LineaPedido;
+const OrderItem = mongoose.model("OrderItem", orderItemSchema);
+module.exports = OrderItem;

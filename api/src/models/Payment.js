@@ -1,22 +1,17 @@
 const mongoose = require("mongoose");
 
-const pagoSchema = new mongoose.Schema({
-  idPago: {
+const paymentSchema = new mongoose.Schema({
+  orderId: {
     type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    unique: true,
-  },
-  idPedido: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Pedido",
+    ref: "Order",
     required: true,
   },
-  metodo: {
+  method: {
     type: String,
     required: true,
     enum: ["tarjeta", "paypal", "transferencia"],
   },
-  importe: {
+  amount: {
     type: Number,
     required: true,
     min: 0,
@@ -27,12 +22,12 @@ const pagoSchema = new mongoose.Schema({
     enum: ["pendiente", "completado", "fallido", "reembolsado"],
     default: "pendiente",
   },
-  fecha: {
+  date: {
     type: Date,
     default: Date.now,
     required: true,
   },
 });
 
-const Pago = mongoose.model("Pago", pagoSchema);
-module.exports = Pago;
+const Payment = mongoose.model("Payment", paymentSchema);
+module.exports = Payment;

@@ -6,7 +6,7 @@ const connectDB = async () => {
   // try catch por si hay errores en la conexión
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log("MongoDB connectat correctament");
+    console.log("MongoDB conectado correctamente");
   } catch (err) {
     console.log(err.message);
     // Paramos todo el proceso con código 1 (mal)

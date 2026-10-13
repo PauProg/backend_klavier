@@ -1,12 +1,7 @@
 const mongoose = require("mongoose");
 
-const cuponDescuentoSchema = new mongoose.Schema({
-  idCuponDescuento: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    unique: true,
-  },
-  codigo: {
+const discountCouponSchema = new mongoose.Schema({
+  code: {
     type: String,
     required: true,
     unique: true,
@@ -14,27 +9,27 @@ const cuponDescuentoSchema = new mongoose.Schema({
     uppercase: true,
     minlength: 3,
   },
-  porcentaje: {
+  percentage: {
     type: Number,
     required: true,
     min: 0,
     max: 100,
   },
-  fechaInicio: {
+  startDate: {
     type: Date,
     required: true,
   },
-  fechaFin: {
+  endDate: {
     type: Date,
     required: true,
     validate: {
       validator: function (valor) {
-        return valor >= this.fechaInicio;
+        return valor >= this.startDate;
       },
       message: "La fecha de fin debe ser posterior a la fecha de inicio",
     },
   },
-  usosMaximos: {
+  maxUses: {
     type: Number,
     required: true,
     min: 1,
@@ -43,7 +38,7 @@ const cuponDescuentoSchema = new mongoose.Schema({
       message: "Los usos máximos deben ser un número entero",
     },
   },
-  usosActuales: {
+  currentUses: {
     type: Number,
     default: 0,
     min: 0,
@@ -54,7 +49,7 @@ const cuponDescuentoSchema = new mongoose.Schema({
       },
       {
         validator: function (valor) {
-          return valor <= this.usosMaximos;
+          return valor <= this.maxUses;
         },
         message: "Los usos actuales no pueden superar los usos máximos",
       },
@@ -62,5 +57,5 @@ const cuponDescuentoSchema = new mongoose.Schema({
   },
 });
 
-const CuponDescuento = mongoose.model("CuponDescuento", cuponDescuentoSchema);
-module.exports = CuponDescuento;
+const DiscountCoupon = mongoose.model("DiscountCoupon", discountCouponSchema);
+module.exports = DiscountCoupon;

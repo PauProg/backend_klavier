@@ -11,4 +11,4 @@ connectDB();
 app.get('/', (req, res) => res.send('API Ecommerce en marcha 🚀'));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Servidor escoltant al port ${PORT}`));
+app.listen(PORT, () => console.log(`Servidor escuchando el puerto ${PORT}`));

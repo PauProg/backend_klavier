@@ -1,18 +1,13 @@
 const mongoose = require("mongoose");
 
-const productoSchema = new mongoose.Schema({
-  idProducto: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    unique: true,
-  },
-  nombre: {
+const productSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
     trim: true,
     minlength: 2,
   },
-  descripcion: {
+  description: {
     type: String,
     required: true,
     trim: true,
@@ -28,7 +23,7 @@ const productoSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  anioFabricacion: {
+  manufacturingYear: {
     type: Number,
     required: true,
     min: [1800, "El año de fabricación no es válido"],
@@ -42,7 +37,7 @@ const productoSchema = new mongoose.Schema({
     required: true,
     min: 0,
   },
-  stockActual: {
+  currentStock: {
     type: Number,
     required: true,
     min: 0,
@@ -51,31 +46,31 @@ const productoSchema = new mongoose.Schema({
       message: "El stock debe ser un número entero",
     },
   },
-  imagenes: {
+  images: {
     type: [String],
     default: [],
   },
-  peso: {
+  weight: {
     type: Number,
     required: true,
     min: 0,
   },
-  alto: {
+  height: {
     type: Number,
     required: true,
     min: 0,
   },
-  ancho: {
+  width: {
     type: Number,
     required: true,
     min: 0,
   },
-  profundidad: {
+  depth: {
     type: Number,
     required: true,
     min: 0,
   },
 });
 
-const Producto = mongoose.model("Producto", productoSchema);
-module.exports = Producto;
+const Product = mongoose.model("Product", productSchema);
+module.exports = Product;

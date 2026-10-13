@@ -1,22 +1,17 @@
 const mongoose = require("mongoose");
 
-const pedidoSchema = new mongoose.Schema({
-  idPedido: {
+const orderSchema = new mongoose.Schema({
+  addressId: {
     type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    unique: true,
-  },
-  idDireccion: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Direccion",
+    ref: "Address",
     required: true,
   },
-  idUsuario: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Usuario",
+    ref: "User",
     required: true,
   },
-  fecha: {
+  date: {
     type: Date,
     default: Date.now,
     required: true,
@@ -26,7 +21,7 @@ const pedidoSchema = new mongoose.Schema({
     required: true,
     min: 0,
   },
-  precioEnvio: {
+  shippingPrice: {
     type: Number,
     required: true,
     min: 0,
@@ -36,11 +31,11 @@ const pedidoSchema = new mongoose.Schema({
     required: true,
     min: 0,
   },
-  idCupon: {
+  couponId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "CuponDescuento",
+    ref: "DiscountCoupon",
   },
 });
 
-const Pedido = mongoose.model("Pedido", pedidoSchema);
-module.exports = Pedido;
+const Order = mongoose.model("Order", orderSchema);
+module.exports = Order;

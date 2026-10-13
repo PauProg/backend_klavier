@@ -1,21 +1,16 @@
 const mongoose = require("mongoose");
 
-const movimientoStockSchema = new mongoose.Schema({
-  idMovimientoStock: {
+const stockMovementSchema = new mongoose.Schema({
+  productId: {
     type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    unique: true,
-  },
-  idProducto: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Producto",
+    ref: "Product",
     required: true,
   },
   saleStock: {
     type: Boolean,
     required: true,
   },
-  cantidad: {
+  quantity: {
     type: Number,
     required: true,
     min: 1,
@@ -24,25 +19,22 @@ const movimientoStockSchema = new mongoose.Schema({
       message: "La cantidad debe ser un número entero",
     },
   },
-  motivo: {
+  reason: {
     type: String,
     required: true,
     trim: true,
   },
-  idUsuario: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Usuario",
+    ref: "User",
     required: true,
   },
-  fecha: {
+  date: {
     type: Date,
     default: Date.now,
     required: true,
   },
 });
 
-const MovimientoStock = mongoose.model(
-  "MovimientoStock",
-  movimientoStockSchema,
-);
-module.exports = MovimientoStock;
+const StockMovement = mongoose.model("StockMovement", stockMovementSchema);
+module.exports = StockMovement;

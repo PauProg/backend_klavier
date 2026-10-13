@@ -1,29 +1,24 @@
 const mongoose = require("mongoose");
 
-const usuarioSchema = new mongoose.Schema({
-  idUsuario: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    unique: true,
-  },
-  rol: {
+const userSchema = new mongoose.Schema({
+  role: {
     type: String,
     enum: ["cliente", "admin"],
     default: "cliente",
   },
-  nombre: {
+  name: {
     type: String,
     required: true,
     trim: true,
     minlength: 2,
   },
-  apellidos: {
+  surnames: {
     type: String,
     required: true,
     trim: true,
     minlength: 2,
   },
-  fechaNacimiento: {
+  birthDate: {
     type: Date,
     required: true,
     validate: {
@@ -36,23 +31,23 @@ const usuarioSchema = new mongoose.Schema({
       message: "Fecha de nacimiento no válida",
     },
   },
-  correo: {
+  email: {
     type: String,
     required: true,
     unique: true,
     match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   },
-  contraseña: {
+  password: {
     type: String,
     required: true,
     minlength: 8,
   },
-  telefono: {
+  phone: {
     type: String,
     required: true,
     match: /^[0-9]{9}$/,
   },
-  nacionalidad: {
+  nationality: {
     type: String,
     required: true,
     trim: true,
@@ -60,5 +55,5 @@ const usuarioSchema = new mongoose.Schema({
   },
 });
 
-const Usuario = mongoose.model("Usuario", usuarioSchema);
-module.exports = Usuario;
+const User = mongoose.model("User", userSchema);
+module.exports = User;

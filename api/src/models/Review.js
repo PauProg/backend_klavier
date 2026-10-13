@@ -1,22 +1,17 @@
 const mongoose = require("mongoose");
 
-const reseniaSchema = new mongoose.Schema({
-  idReseña: {
+const reviewSchema = new mongoose.Schema({
+  productId: {
     type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    unique: true,
-  },
-  idProducto: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Producto",
+    ref: "Product",
     required: true,
   },
-  idUsuario: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Usuario",
+    ref: "User",
     required: true,
   },
-  valoracion: {
+  rating: {
     type: Number,
     required: true,
     min: 1,
@@ -26,17 +21,17 @@ const reseniaSchema = new mongoose.Schema({
       message: "La valoración debe ser un número entero",
     },
   },
-  comentario: {
+  comment: {
     type: String,
     trim: true,
     maxlength: 1000,
   },
-  fecha: {
+  date: {
     type: Date,
     default: Date.now,
     required: true,
   },
 });
 
-const Resenia = mongoose.model("Resenia", reseniaSchema);
-module.exports = Resenia;
+const Review = mongoose.model("Review", reviewSchema);
+module.exports = Review;

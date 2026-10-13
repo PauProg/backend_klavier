@@ -1,56 +1,51 @@
 const mongoose = require("mongoose");
 
-const direccionSchema = new mongoose.Schema({
-  idDireccion: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    unique: true,
-  },
-  nombre: {
+const addressSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
     trim: true,
   },
-  calle: {
+  street: {
     type: String,
     required: true,
     trim: true,
   },
-  codigoPostal: {
+  postalCode: {
     type: String,
     required: true,
     match: /^[0-9]{5}$/,
   },
-  provincia: {
+  province: {
     type: String,
     required: true,
     trim: true,
   },
-  pais: {
+  country: {
     type: String,
     required: true,
     trim: true,
   },
-  ciudad: {
+  city: {
     type: String,
     required: true,
     trim: true,
   },
-  puerta: {
+  door: {
     type: String,
     required: true,
     trim: true,
   },
-  masDetalles: {
+  additionalDetails: {
     type: String,
     trim: true,
     maxlength: 500,
   },
-  principal: {
+  primary: {
     type: Boolean,
     default: false,
   },
 });
 
-const Direccion = mongoose.model("Direccion", direccionSchema);
-module.exports = Direccion;
+const Address = mongoose.model("Address", addressSchema);
+module.exports = Address;

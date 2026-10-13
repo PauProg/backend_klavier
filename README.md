@@ -49,7 +49,7 @@ Pau Medina Vázquez
 │   │   ├── elige-base-de-datos.md
 │   │   └── separa-repositorios.md
 │   └── diagrams/
-│       └── diagramaDomini.drawio
+│       └── diagramaDomini.png
 ├── .gitignore
 ├── package.json
 └── README.md

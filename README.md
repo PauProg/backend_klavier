@@ -25,31 +25,22 @@ Pau Medina Vázquez
 │       │   └── db.js
 │       ├── index.js
 │       └── models/
-│           ├── Carrito.js
-│           ├── Categoria.js
-│           ├── CategoriaProducto.js
-│           ├── CuponDescuento.js
-│           ├── Descuento.js
-│           ├── Direccion.js
-│           ├── HistorialEstadoPedido.js
-│           ├── LineaCarrito.js
-│           ├── LineaPedido.js
-│           ├── MovimientoStock.js
-│           ├── Pago.js
-│           ├── Pedido.js
-│           ├── Producto.js
-│           ├── Resenia.js
-│           └── Usuario.js
+|           ├── Address.js
+│           ├── Cart.js
+│           ├── CartItem.js
+│           ├── Category.js
+│           ├── Discount.js
+│           ├── DiscountCoupon.js
 ├── docker/
 │   ├── .env.example
 │   ├── .env
 │   └── docker-compose.yml
 ├── docs/
 │   ├── adrs/
-│   │   ├── elige-base-de-datos.md
-│   │   └── separa-repositorios.md
+│   │   ├── choose-bbdd.md
+│   │   └── separate-repositories.md
 │   └── diagrams/
-│       └── diagramaDomini.png
+│       └── domainDiagram.png
 ├── .gitignore
 ├── package.json
 └── README.md

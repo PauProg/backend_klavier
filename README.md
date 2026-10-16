@@ -22,15 +22,35 @@ Pau Medina Vázquez
 │   ├── package.json
 │   └── src/
 │       ├── config/
-│       │   └── db.js
+│       |   └── db.js
+|       ├── controllers/
+│       |   ├── productController.js
+|       |   └── userController.js
+│       ├── models/
+|       |   ├── Address.js
+│       |   ├── Cart.js
+│       |   ├── CartItem.js
+│       |   ├── Category.js
+│       |   ├── Discount.js
+│       |   ├── DiscountCoupon.js
+│       |   ├── Order.js
+│       |   ├── OrderItem.js
+│       |   ├── OrderStatusHistory.js
+│       |   ├── Payment.js
+│       |   ├── Product.js
+│       |   ├── ProductCategory.js
+│       |   ├── Review.js
+│       |   ├── StockMovement.js
+│       |   └── User.js
+|       ├── routes/
+│       |   ├── productRoutes.js
+│       |   └── userRoutes.js
+|       ├── services/
+│       |   ├── productService.js
+│       |   └── userService.js
 │       ├── index.js
-│       └── models/
-|           ├── Address.js
-│           ├── Cart.js
-│           ├── CartItem.js
-│           ├── Category.js
-│           ├── Discount.js
-│           ├── DiscountCoupon.js
+|       ├── .env
+|       └── .env.example
 ├── docker/
 │   ├── .env.example
 │   ├── .env

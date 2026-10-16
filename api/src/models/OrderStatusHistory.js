@@ -6,7 +6,7 @@ const orderStatusHistorySchema = new mongoose.Schema({
     ref: "Order",
     required: true,
   },
-  estado: {
+  status: {
     type: String,
     required: true,
     enum: [

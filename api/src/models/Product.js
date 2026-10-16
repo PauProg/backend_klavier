@@ -13,12 +13,12 @@ const productSchema = new mongoose.Schema({
     trim: true,
     minlength: 2,
   },
-  marca: {
+  brand: {
     type: String,
     required: true,
     trim: true,
   },
-  modelo: {
+  model: {
     type: String,
     required: true,
     trim: true,
@@ -32,7 +32,7 @@ const productSchema = new mongoose.Schema({
       "El año de fabricación no puede ser futuro",
     ],
   },
-  precio: {
+  price: {
     type: Number,
     required: true,
     min: 0,

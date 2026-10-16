@@ -6,7 +6,7 @@ const stockMovementSchema = new mongoose.Schema({
     ref: "Product",
     required: true,
   },
-  saleStock: {
+  stockOut: {
     type: Boolean,
     required: true,
   },

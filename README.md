@@ -18,47 +18,47 @@ Pau Medina Vázquez
 ```text
 .
 ├── api/
+│   ├── .env
 │   ├── .env.example
 │   ├── package.json
 │   └── src/
 │       ├── config/
-│       |   └── db.js
-|       ├── controllers/
-│       |   ├── productController.js
-|       |   └── userController.js
+│       │   └── db.js
+│       ├── controllers/
+│       │   ├── productController.js
+│       │   └── userController.js
 │       ├── models/
-|       |   ├── Address.js
-│       |   ├── Cart.js
-│       |   ├── CartItem.js
-│       |   ├── Category.js
-│       |   ├── Discount.js
-│       |   ├── DiscountCoupon.js
-│       |   ├── Order.js
-│       |   ├── OrderItem.js
-│       |   ├── OrderStatusHistory.js
-│       |   ├── Payment.js
-│       |   ├── Product.js
-│       |   ├── ProductCategory.js
-│       |   ├── Review.js
-│       |   ├── StockMovement.js
-│       |   └── User.js
-|       ├── routes/
-│       |   ├── productRoutes.js
-│       |   └── userRoutes.js
-|       ├── services/
-│       |   ├── productService.js
-│       |   └── userService.js
-│       ├── index.js
-|       ├── .env
-|       └── .env.example
+│       │   ├── Address.js
+│       │   ├── Cart.js
+│       │   ├── CartItem.js
+│       │   ├── Category.js
+│       │   ├── Discount.js
+│       │   ├── DiscountCoupon.js
+│       │   ├── Order.js
+│       │   ├── OrderItem.js
+│       │   ├── OrderStatusHistory.js
+│       │   ├── Payment.js
+│       │   ├── Product.js
+│       │   ├── ProductCategory.js
+│       │   ├── Review.js
+│       │   ├── StockMovement.js
+│       │   └── User.js
+│       ├── routes/
+│       │   ├── productRoutes.js
+│       │   └── userRoutes.js
+│       ├── services/
+│       │   ├── productService.js
+│       │   └── userService.js
+│       └── index.js
 ├── docker/
-│   ├── .env.example
 │   ├── .env
+│   ├── .env.example
 │   └── docker-compose.yml
 ├── docs/
 │   ├── adrs/
 │   │   ├── choose-database.md
-│   │   └── separate-repositories.md
+│   │   ├── separate-repositories.md
+│   │   └── write-code-english.md
 │   └── diagrams/
 │       └── domainDiagram.png
 ├── .gitignore
@@ -70,6 +70,9 @@ Pau Medina Vázquez
 
 - `api/src/config/`: configuración de la conexión con MongoDB.
 - `api/src/models/`: esquemas Mongoose de las entidades de la aplicación.
+- `api/src/routes/`: define los endpoints y los asocia a su controlador.
+- `api/src/controllers/`: gestiona la parte HTTP (recibe la petición y envía la respuesta).
+- `api/src/services/`: contiene la lógica y accede a los modelos.
 - `api/src/index.js`: punto de entrada del servidor Express.
 - `docker/`: configuración de MongoDB mediante Docker Compose.
 - `docs/adrs/`: decisiones técnicas y arquitectónicas del proyecto.

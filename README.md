@@ -57,7 +57,7 @@ Pau Medina Vázquez
 │   └── docker-compose.yml
 ├── docs/
 │   ├── adrs/
-│   │   ├── choose-bbdd.md
+│   │   ├── choose-database.md
 │   │   └── separate-repositories.md
 │   └── diagrams/
 │       └── domainDiagram.png

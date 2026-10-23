@@ -1,0 +1,11 @@
+$kind: http-request
+name: category
+url: "{{baseUrl}}/api/categories/6adb7de39323605b629f37c1"
+method: PATCH
+body:
+  type: json
+  content: |-
+    {
+        "description": "Categoria número 2 de prueba de pianos"
+    }
+order: 4000

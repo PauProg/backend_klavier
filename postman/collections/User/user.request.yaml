@@ -1,0 +1,19 @@
+$kind: http-request
+description: ""
+url: "{{baseUrl}}/api/users"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "role": "client",
+      "name": "Victor",
+      "surnames": "Reig Herrera",
+      "birthDate": "2007-01-10T00:00:00.000Z",
+      "email": "victor.reig@gmail.com",
+      "password": "VictorDev2026#",
+      "phone": "654321987",
+      "nationality": "Española",
+      "active": true
+    }
+order: 1000

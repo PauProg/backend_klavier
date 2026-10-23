@@ -1,0 +1,11 @@
+$kind: http-request
+name: user
+url: "{{baseUrl}}/api/users/6adb974a7163c9baa547ddf5"
+method: PATCH
+body:
+  type: json
+  content: |-
+    {
+        "birthDate": "2007-09-19T00:00:00.000Z"
+    }
+order: 4000

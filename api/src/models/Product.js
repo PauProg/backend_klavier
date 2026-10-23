@@ -36,6 +36,10 @@ const productSchema = new mongoose.Schema({
     type: Number,
     required: true,
     min: 0,
+    validate: {
+      validator: (value) => value === Number(value.toFixed(2)),
+      message: "El precio no puede tener más de 2 decimales",
+    },
   },
   currentStock: {
     type: Number,
@@ -70,6 +74,10 @@ const productSchema = new mongoose.Schema({
     required: true,
     min: 0,
   },
+  categories: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category'
+  }],
 });
 
 const Product = mongoose.model("Product", productSchema);

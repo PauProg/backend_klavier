@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/api/categories"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "name": "Pianos de Estudio",
+      "slug": "pianos-de-estudio",
+      "description": "Modelos robustos y fiables de altura media, especialmente concebidos para soportar intensas jornadas de estudio en escuelas de música y academias.",
+      "active": true
+    }
+scripts:
+  - type: afterResponse
+    code: ""
+    language: text/javascript
+order: 1000

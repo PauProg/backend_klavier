@@ -1,0 +1,5 @@
+$kind: http-request
+name: category
+url: "{{baseUrl}}/api/categories/6adb7de39323605b629f37c1"
+method: DELETE
+order: 5000

@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   role: {
     type: String,
-    enum: ["cliente", "admin"],
-    default: "cliente",
+    enum: ["client", "admin"],
+    default: "client",
   },
   name: {
     type: String,
@@ -25,7 +25,6 @@ const userSchema = new mongoose.Schema({
       validator: function (valor) {
         const hace100Anios = new Date();
         hace100Anios.setFullYear(hace100Anios.getFullYear() - 100);
-
         return valor <= new Date() && valor >= hace100Anios;
       },
       message: "Fecha de nacimiento no válida",
@@ -37,10 +36,10 @@ const userSchema = new mongoose.Schema({
     unique: true,
     match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   },
-  password: {
+  passwordHash: {
     type: String,
     required: true,
-    minlength: 8,
+    minlength: 12,
   },
   phone: {
     type: String,
@@ -53,7 +52,11 @@ const userSchema = new mongoose.Schema({
     trim: true,
     minlength: 2,
   },
-});
+  active: {
+    type: Boolean,
+    default: true,
+  },
+}, { timestamps: true });
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;

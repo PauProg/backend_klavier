@@ -6,12 +6,12 @@ const createProduct = async (productData) => {
 };
 
 const getAllProducts = async () => {
-  return await Product.find();
+  return await Product.find().populate('categories');
 };
 
 const getProductById = async (id) => {
   // si no encuentra ninguno no da error, devuelve null, eso lo gestionamos en el controlador
-  return await Product.findById(id);
+  return await Product.findById(id).populate('categories');
 };
 
 const updateProduct = async (id, updateData) => {

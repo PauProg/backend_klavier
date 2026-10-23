@@ -1,0 +1,44 @@
+$kind: http-request
+url: "{{baseUrl}}/api/categories?page=1&limit=2"
+method: GET
+queryParams:
+  - key: sort
+    value: name
+    disabled: true
+    description: ""
+  - key: sort
+    value: -name
+    disabled: true
+    description: ""
+  - key: sort
+    value: -createdAt
+    disabled: true
+    description: ""
+  - key: active
+    value: "true"
+    disabled: true
+    description: ""
+  - key: name
+    value: verti
+    disabled: true
+    description: ""
+  - key: page
+    value: "1"
+    disabled: false
+    description: ""
+  - key: limit
+    value: "2"
+    disabled: false
+    description: ""
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 201 o 200", () => {
+          pm.response.to.have.status(201); // O 200 según corresponda
+      });
+
+      pm.test("Response is JSON", () => {
+          pm.response.to.be.json;
+      });
+    language: text/javascript
+order: 2000

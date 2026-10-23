@@ -1,0 +1,5 @@
+$kind: http-request
+name: user
+url: "{{baseUrl}}/api/users/6adb976a7163c9baa547ddf6"
+method: DELETE
+order: 5000

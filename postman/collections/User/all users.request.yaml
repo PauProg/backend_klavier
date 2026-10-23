@@ -1,0 +1,50 @@
+$kind: http-request
+description: ""
+url: "{{baseUrl}}/api/users"
+method: GET
+queryParams:
+  - key: active
+    value: "false"
+    disabled: true
+    description: ""
+  - key: name
+    value: pa
+    disabled: true
+    description: ""
+  - key: sort
+    value: -createdAt
+    disabled: true
+    description: ""
+  - key: page
+    value: "1"
+    disabled: true
+    description: ""
+  - key: limit
+    value: "2"
+    disabled: true
+    description: ""
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 201 o 200", () => {
+          pm.response.to.have.status(201); // O 200 según corresponda
+      });
+
+      pm.test("Response is JSON", () => {
+          pm.response.to.be.json;
+      });
+
+      pm.test("No exposa passwordHash", () => {
+          const response = pm.response.json();
+          // Si la respuesta es un array, comprobamos el primer elemento o recorremos
+          const data = response.data;
+          if (Array.isArray(data)) {
+              data.forEach(user => {
+                  pm.expect(user).to.not.have.property("passwordHash");
+              });
+          } else {
+              pm.expect(data).to.not.have.property("passwordHash");
+          }
+      });
+    language: text/javascript
+order: 2000

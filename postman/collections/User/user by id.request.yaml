@@ -1,0 +1,5 @@
+$kind: http-request
+description: ""
+url: "{{baseUrl}}/api/users/6adb974a7163c9baa547ddf5"
+method: GET
+order: 3000

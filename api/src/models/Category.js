@@ -5,15 +5,25 @@ const categorySchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    minlength: 2,
+    minlength: 3,
   },
-  description: {
+  slug: {
     type: String,
     required: true,
     trim: true,
-    minlength: 2,
+    unique: true
   },
-});
+  description: {
+    type: String,
+    trim: true,
+    maxlength: 500,
+  },
+  active: {
+    type: Boolean,
+    default: true
+  },
+},
+{ timestamps: true });
 
 const Category = mongoose.model("Category", categorySchema);
 module.exports = Category;

@@ -1,63 +1,69 @@
 const productService = require('../services/productService');
 
-const createProduct = async (req, res) => {
+const createProduct = async (req, res, next) => {
   try {
     const product = await productService.createProduct(req.body);
     res.status(201).json({ status: 'success', data: product });
   } catch (err) {
-    res.status(400).json({ status: 'error', message: err.message });
+    next(err);
   }
 };
 
-const getAllProducts = async (req, res) => {
+const getAllProducts = async (req, res, next) => {
   try {
     const products = await productService.getAllProducts();
     res.status(200).json({ status: 'success', data: products });
   } catch (err) {
-    res.status(500).json({ status: 'error', message: err.message });
+    next(err);
   }
 };
 
-const getProductById = async (req, res) => {
+const getProductById = async (req, res, next) => {
   try {
     // esto coge lo que viene en la url, concretamente el id
     const product = await productService.getProductById(req.params.id);
 
     if (!product) {
-      return res.status(404).json({ status: 'error', message: 'No existe ningún producto con ese id' });
+      const error = new Error('No existe ningún producto con ese id');
+      error.statusCode = 404;
+      throw error;
     }
 
     res.status(200).json({ status: 'success', data: product });
   } catch (err) {
-    res.status(400).json({ status: 'error', message: err.message });
+    next(err);
   }
 };
 
-const updateProduct = async (req, res) => {
+const updateProduct = async (req, res, next) => {
   try {
     const product = await productService.updateProduct(req.params.id, req.body);
 
     if (!product) {
-      return res.status(404).json({ status: 'error', message: 'No existe ningún producto con ese id' });
+      const error = new Error('No existe ningún producto con ese id');
+      error.statusCode = 404;
+      throw error;
     }
 
     res.status(200).json({ status: 'success', data: product });
   } catch (err) {
-    res.status(400).json({ status: 'error', message: err.message });
+    next(err);
   }
 };
 
-const deleteProduct = async (req, res) => {
+const deleteProduct = async (req, res, next) => {
   try {
     const deletedProduct = await productService.deleteProduct(req.params.id);
 
     if (!deletedProduct) {
-      return res.status(404).json({ status: 'error', message: 'No existe ningún producto con ese id' });
+      const error = new Error('No existe ningún producto con ese id');
+      error.statusCode = 404;
+      throw error;
     }
 
     res.status(204).send();
   } catch (err) {
-    res.status(400).json({ status: 'error', message: err.message });
+    next(err);
   }
 };
 

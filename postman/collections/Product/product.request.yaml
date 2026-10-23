@@ -1,0 +1,23 @@
+$kind: http-request
+description: ""
+url: "{{baseUrl}}/api/products"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "name": "Wilhelm Steinberg ISC 116",
+      "description": "Diseñado bajo estrictos cánones alemanes, este piano de estudio destaca por su calidez tonal europea y una excelente respuesta mecánica, ideal para los primeros años de conservatorio.",
+      "brand": "Wilhelm Steinberg",
+      "model": "ISC 116",
+      "manufacturingYear": 2024,
+      "price": 7250.00,
+      "currentStock": 5,
+      "images": [],
+      "weight": 202,
+      "height": 116,
+      "width": 149,
+      "depth": 59,
+      "categories": ["6adb81abe973328ed801123c"]
+    }
+order: 1000

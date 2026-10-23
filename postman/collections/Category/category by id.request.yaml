@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/api/categories/6adb7de39323605b629f37c1"
+method: GET
+order: 3000

@@ -1,0 +1,11 @@
+$kind: http-request
+name: product
+url: "{{baseUrl}}/api/products/6ad1fdca0ad9e11ea54a3bdd"
+method: PATCH
+body:
+  type: json
+  content: |-
+    {
+        "description": "Piano de cola exclusivo para conciertos"
+    }
+order: 4000

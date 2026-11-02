@@ -11,7 +11,7 @@ const validatePassword = (password) => {
 
 const createUser = async (userData) => {
   // 1. Extraemos la contraseña y el resto de los datos en texto plano
-  const { password, ...otherData } = userData;
+  const { password, role, active, ...otherData } = userData;
 
   validatePassword(password);
 
@@ -92,6 +92,8 @@ const updateUser = async (id, updateData) => {
     // a actualizar para evitar sobreescribir el hash actual con undefined o vacíos.
     delete updateData.passwordHash;
   }
+
+  delete updateData.role;
 
   // 2. Ejecutamos la actualización
   return await User.findByIdAndUpdate(

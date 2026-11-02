@@ -1,4 +1,11 @@
 $kind: http-request
-url: ""
+url: "{{baseUrl}}/api/auth/login"
 method: POST
+body:
+  type: json
+  content: |-
+    {
+        "email": "pau.medina@klavier.com",
+        "password": "PauMedinaDev#2026"
+    }
 order: 1000

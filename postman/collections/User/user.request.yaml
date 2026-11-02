@@ -6,7 +6,7 @@ body:
   type: json
   content: |-
     {
-      "role": "client",
+      "role": "admin",
       "name": "Oscar",
       "surnames": "Rueda López",
       "birthDate": "2007-03-10T00:00:00.000Z",
@@ -14,6 +14,6 @@ body:
       "password": "OscarDev2026#",
       "phone": "682638291",
       "nationality": "Colombiana",
-      "active": true
+      "active": false
     }
 order: 1000

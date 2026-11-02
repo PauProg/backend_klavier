@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const userService = require('../services/userService');
 
 const login = async ({ email, password }) => {
   if (!email || !password ) {
@@ -37,4 +38,11 @@ const login = async ({ email, password }) => {
   return { token, user: otherData };
 };
 
-module.exports = { login };
+const register = async (userData) => {
+  return await userService.createUser(userData);
+}
+
+module.exports = {
+  login,
+  register
+};

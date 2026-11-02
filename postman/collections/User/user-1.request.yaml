@@ -6,6 +6,6 @@ body:
   type: json
   content: |-
     {
-        "birthDate": "2007-09-19T00:00:00.000Z"
+        "password": "PauMedinaDev#2026"
     }
 order: 4000

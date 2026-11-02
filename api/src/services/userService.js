@@ -79,7 +79,7 @@ const getUserById = async (id) => {
 
 const updateUser = async (id, updateData) => {
   // 1. Comprobamos si el usuario actualiza su contraseña
-  if (updateData.password) {
+  if (updateData.password !== undefined) {
     validatePassword(updateData.password);
     const saltRounds = 10;
     // Hasheamos la nueva contraseña

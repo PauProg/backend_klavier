@@ -11,7 +11,7 @@ const errorHandler = (err, req, res, next) => {
   }
 
   if (err.code === 11000) { // Error de duplicidad (ej. email ya registrado)
-    statusCode = 400;
+    statusCode = 409;
     message = `El valor introducido para '${Object.keys(err.keyValue)}' ya está registrado.`;
   }
 

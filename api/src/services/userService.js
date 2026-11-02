@@ -5,6 +5,12 @@ const createUser = async (userData) => {
   // 1. Extraemos la contraseña y el resto de los datos en texto plano
   const { password, ...otherData } = userData;
 
+  if (!password || password.length < 12) {
+    const error = new Error('Debe haber una contraseña de 12 carácteres como mínimo.');
+    error.statusCode = 422;
+    throw error;
+  }
+
   // 2. Definimos el coste de salt (rondas)
   const saltRounds = 10;
 

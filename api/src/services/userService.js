@@ -11,16 +11,20 @@ const createUser = async (userData) => {
   console.log("Salt rounds: " + saltRounds)
 
   // 3. Generamos el hash de la contraseña
-  const passwordHash = await bcrypt.hash(password, saltRounds);
-  console.log("Hash pass: " + passwordHash);
+  const generatedPasswordHash = await bcrypt.hash(password, saltRounds);
+  console.log("Hash pass: " + generatedPasswordHash);
 
   // 4. Creamos el usuario con el passwordHash en vez del texto plano
   const newUser = new User({
     ...otherData,
-    passwordHash
+    passwordHash: generatedPasswordHash
   });
 
-  return (await newUser.save()).isSelected('-passwordHash');
+  const savedUser = await newUser.save();
+  const userObject = savedUser.toObject();
+  const { passwordHash, ...userWOHash } = userObject;
+
+  return userWOHash;
 };
 
 const getAllUsers = async (queryParams) => {

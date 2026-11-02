@@ -7,13 +7,13 @@ body:
   content: |-
     {
       "role": "client",
-      "name": "Victor",
-      "surnames": "Reig Herrera",
-      "birthDate": "2007-01-10T00:00:00.000Z",
-      "email": "victor.reig@gmail.com",
-      "password": "VictorDev2026#",
-      "phone": "654321987",
-      "nationality": "Española",
+      "name": "Oscar",
+      "surnames": "Rueda López",
+      "birthDate": "2007-03-10T00:00:00.000Z",
+      "email": "oscar.rueda@gmail.com",
+      "password": "OscarDev2026#",
+      "phone": "682638291",
+      "nationality": "Colombiana",
       "active": true
     }
 order: 1000

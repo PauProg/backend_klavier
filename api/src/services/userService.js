@@ -94,6 +94,7 @@ const updateUser = async (id, updateData) => {
   }
 
   delete updateData.role;
+  delete updateData.active;
 
   // 2. Ejecutamos la actualización
   return await User.findByIdAndUpdate(

@@ -2,17 +2,14 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
 const createUser = async (userData) => {
-  console.log("Userdata: " + userData);
   // 1. Extraemos la contraseña y el resto de los datos en texto plano
   const { password, ...otherData } = userData;
 
   // 2. Definimos el coste de salt (rondas)
   const saltRounds = 10;
-  console.log("Salt rounds: " + saltRounds)
 
   // 3. Generamos el hash de la contraseña
   const generatedPasswordHash = await bcrypt.hash(password, saltRounds);
-  console.log("Hash pass: " + generatedPasswordHash);
 
   // 4. Creamos el usuario con el passwordHash en vez del texto plano
   const newUser = new User({

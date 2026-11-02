@@ -1,15 +1,19 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
+const validatePassword = (password) => {
+  if (!password || password.length < 12) {
+    const error = new Error('Debe haber una contraseña de 12 caracteres como mínimo.');
+    error.statusCode = 422;
+    throw error;
+  }
+}
+
 const createUser = async (userData) => {
   // 1. Extraemos la contraseña y el resto de los datos en texto plano
   const { password, ...otherData } = userData;
 
-  if (!password || password.length < 12) {
-    const error = new Error('Debe haber una contraseña de 12 carácteres como mínimo.');
-    error.statusCode = 422;
-    throw error;
-  }
+  validatePassword(password);
 
   // 2. Definimos el coste de salt (rondas)
   const saltRounds = 10;
@@ -76,6 +80,7 @@ const getUserById = async (id) => {
 const updateUser = async (id, updateData) => {
   // 1. Comprobamos si el usuario actualiza su contraseña
   if (updateData.password) {
+    validatePassword(updateData.password);
     const saltRounds = 10;
     // Hasheamos la nueva contraseña
     updateData.passwordHash = await bcrypt.hash(updateData.password, saltRounds);

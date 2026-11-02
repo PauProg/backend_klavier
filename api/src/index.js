@@ -7,6 +7,7 @@ const connectDB = require('./config/db');
 const productRoutes = require('./routes/productRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 // ErrorHandler
 const errorHandler = require('./middlewares/errorHandler');
@@ -20,6 +21,8 @@ app.get('/', (req, res) => res.send('API Ecommerce en marcha 🚀'));
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
+
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
